@@ -146,16 +146,3 @@ void Menu(){
         }
     }while (opcao != 5); // encerrar o loop while quando digitado a opcao 5 de sair do progama.
 }
-
-
-
-         
-
-
-
-
-
-        
-
-    
-
