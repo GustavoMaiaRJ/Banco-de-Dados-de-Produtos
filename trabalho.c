@@ -1,3 +1,4 @@
+// Integrantes: Gustavo Maia DRE: 124046427 Paulo Macedo DRE: 124046809 Lucas Monteiro DRE: 124017795 Matheus Jiahui Huang DRE: 124021273 Jean Musso DRE: 123260921
 #include <stdio.h>
 #include <string.h>
 
