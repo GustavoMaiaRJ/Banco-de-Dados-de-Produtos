@@ -62,7 +62,7 @@ void InserirProd(){
     printf("Produto adicionado com sucesso!");
 }
 
-// Criar função para listar os produtos
+// Criar função para listar os produtos cadastrados
 
 void ListarProd(){
     if(contador == 0){
