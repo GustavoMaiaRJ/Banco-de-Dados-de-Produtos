@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <string.h>
+
+// definindo as dimensoes
+
 #define MaxProd 100
 #define TamProd 20
 
@@ -40,6 +43,7 @@ void InserirProd(){
     Produto novoProd;
     printf("Digite o codigo do produto:\n ");
     scanf("%d", &novoProd.codigo);
+    getchar();
 
     // Analisar se o codigo ja existe ou nao.
     for (int i = 0; i < contador; i++){
@@ -50,12 +54,13 @@ void InserirProd(){
     }
 
     printf("Digite o nome do produto:\n");
-    scanf("%s%*c", &novoProd.nome);
+    scanf("%[^\n]%*c", &novoProd.nome);
     printf("Digite o preco do produto:\n");
     scanf("%f", &novoProd.preco);
+    getchar();
     printf("Digite a quantidade em estoque:\n");
     scanf("%d", &novoProd.quantidade);
-
+    getchar();
     // Adicionar ao contador de produtos o novo produto adicionado
     produtos[contador] = novoProd;
     contador++;
@@ -84,7 +89,7 @@ void ListarProd(){
 void BuscarProd(){
     char nomeBusca[TamProd];
     printf("Digite o nome do produto para a busca:\n");
-    scanf("%s%*c",&nomeBusca);
+    scanf("%[^\n]%*c",nomeBusca);
 
     for (int i = 0; i < contador; i++){
         if (strcmp(produtos[i].nome, nomeBusca) == 0){ // o for percorre o array e compara cada posicao com o produto digitado ate achar o igual.
@@ -101,7 +106,7 @@ void BuscarProd(){
 void ExcluirProd(){
     char nomeExcluir[TamProd];
     printf("Digite o nome do produto que deseja excluir:\n ");
-    scanf("%s%*c", &nomeExcluir);
+    scanf("%[^\n]%*c", &nomeExcluir);
 
     for (int i = 0; i < contador; i++) {
         if (strcmp(produtos[i].nome, nomeExcluir) == 0){
