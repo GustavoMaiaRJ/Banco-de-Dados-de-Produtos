@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// definindo as dimensoes
-
+//definindo as dimensoes
 #define MaxProd 100
 #define TamProd 20
 
@@ -20,7 +19,7 @@ typedef struct {
 Produto produtos[MaxProd];
 int contador = 0;
 
-// Declarar as funções. 
+// Declarar as funções.
 
 void InserirProd();
 void ListarProd();
@@ -49,25 +48,26 @@ void InserirProd(){
     for (int i = 0; i < contador; i++){
         if (produtos[i].codigo == novoProd.codigo){ // Verificar dentro da array
             printf("Codigo de produto ja existente!\n");
-            return;   
+            return;
         }
     }
 
     printf("Digite o nome do produto:\n");
-    scanf("%[^\n]%*c", &novoProd.nome);
+    scanf("%[^\n]%*c", novoProd.nome);
     printf("Digite o preco do produto:\n");
     scanf("%f", &novoProd.preco);
     getchar();
     printf("Digite a quantidade em estoque:\n");
     scanf("%d", &novoProd.quantidade);
     getchar();
+
     // Adicionar ao contador de produtos o novo produto adicionado
     produtos[contador] = novoProd;
     contador++;
     printf("Produto adicionado com sucesso!");
 }
 
-// Criar função para listar os produtos cadastrados
+// Criar função para listar os produtos
 
 void ListarProd(){
     if(contador == 0){
@@ -81,31 +81,34 @@ void ListarProd(){
     }
     return;
 
+
 }
 
 // Criar função para buscar um produto pelo nome
 
-void BuscarProd(){
+void BuscarProd() {
     char nomeBusca[TamProd];
-    printf("Digite o nome do produto para a busca:\n");
-    scanf("%[^\n]%*c",nomeBusca);
+    printf("Digite o nome do produto para buscar: ");
+    scanf(" %[^\n]%*c", nomeBusca);
 
-    for (int i = 0; i < contador; i++){
-        if (strcmp(produtos[i].nome, nomeBusca) == 0){ // o for percorre o array e compara cada posicao com o produto digitado ate achar o igual.
-            printf("Produto encontrado!\n");
-            printf("Codigo: %d | Nome: %s | Preco: %.2f | Quantidade: %d\n", produtos[i].codigo, produtos[i].nome, produtos[i].preco, produtos[i].quantidade);
+    for (int i = 0; i < contador; i++) {
+        if (strcmp(produtos[i].nome, nomeBusca) == 0) {
+            printf("Produto encontrado:\n");
+            printf("Codigo: %d | Nome: %s | Preco: %.2f | Quantidade: %d\n",
+                   produtos[i].codigo, produtos[i].nome, produtos[i].preco, produtos[i].quantidade);
             return;
         }
     }
-    printf("Produto nao encontrado!\n");
+    printf("Produto não encontrado.\n");
 }
+
 
 // Criar a função para excluir produtos pelo nome
 
 void ExcluirProd(){
     char nomeExcluir[TamProd];
     printf("Digite o nome do produto que deseja excluir:\n ");
-    scanf("%[^\n]%*c", &nomeExcluir);
+    scanf("%[^\n]%*c", nomeExcluir);
 
     for (int i = 0; i < contador; i++) {
         if (strcmp(produtos[i].nome, nomeExcluir) == 0){
@@ -117,7 +120,7 @@ void ExcluirProd(){
             return;
         }
     }
-    printf("Produto nao encontrado!\n");
+    printf("Produto naox encontrado!\n");
 }
 
 //Criar a função para mostrar o menu de opcoes
