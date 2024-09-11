@@ -122,7 +122,7 @@ void ExcluirProd(){
             return;
         }
     }
-    printf("Produto naox encontrado!\n");
+    printf("Produto nao encontrado!\n");
 }
 
 //Criar a função para mostrar o menu de opcoes
